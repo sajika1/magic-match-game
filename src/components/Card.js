@@ -1,9 +1,11 @@
 import '../card.css';
 
-export default function Card({item , handleChoice , flipped }) {
+export default function Card({item , handleChoice , flipped , enableSelection }) {
 
     const handleClick = ()=> {
-        handleChoice(item);
+        if (enableSelection) {
+            handleChoice(item);
+        }
     }
 
     return (

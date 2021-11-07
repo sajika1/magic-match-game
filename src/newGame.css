@@ -1,0 +1,66 @@
+.newGame{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background-color: #000;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 1000;
+    animation: changeBackground 1.8s infinite;
+}
+
+.score{
+    animation: changeColor .5s infinite;
+}
+
+@keyframes changeBackground {
+    0%{
+        opacity: .9;
+    }
+    25%{
+        opacity: .8;
+    }
+    50%{
+        opacity: .5;
+    }
+    75%{
+        opacity: .8;
+    }
+    100%{
+        opacity: .9;
+    }
+    
+}
+
+@keyframes changeColor {
+    0%{
+        color: red;
+    }
+   
+    50%{
+        color: rgba(255, 0, 0, 0.678);
+    }
+   
+    100%{
+        color: red;
+    }
+    
+}
+
+.headText{
+    font-size: 2rem;
+    font-weight: 500;
+}
+
+.copy-right{
+    font-size: .8rem;
+    font-weight: 400;
+    margin-bottom: 2rem;
+}
+.creator{
+    font-weight: 600;
+}
