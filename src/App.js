@@ -12,6 +12,18 @@ const imagesSource = [
  { "src":"../img/scroll-1.png" , matched : false },
  { "src":"../img/shield-1.png" , matched : false },
  { "src":"../img/sword-1.png" , matched : false },
+ { "src":"../img/01.jpg" , matched : false },
+ { "src":"../img/02.jpg" , matched : false },
+ { "src":"../img/03.jpg" , matched : false },
+ { "src":"../img/04.jpg" , matched : false },
+ { "src":"../img/05.jpg" , matched : false },
+ { "src":"../img/06.jpg" , matched : false },
+ { "src":"../img/07.jpg" , matched : false },
+ { "src":"../img/08.jpg" , matched : false },
+ { "src":"../img/09.jpg" , matched : false },
+ { "src":"../img/10.jpg" , matched : false },
+ { "src":"../img/11.jpg" , matched : false },
+ { "src":"../img/12.jpg" , matched : false },
 ]
 
 function App() {
@@ -30,12 +42,19 @@ function App() {
 
   const [choiceOne , setChoiceOne] = useState(null);
   const [choiceTwo , setChoiceTwo] = useState(null);
+
+  const [difficulty , setDifficulty] = useState('');
   
   // this function set Cards State with dupplicated items
-  const createItems = ()=>{
+  const createItems = (diff)=>{
+    
     setStartNewGame(true);
     setWasEnded(false);
-    const shuffledImage = [ ...imagesSource , ...imagesSource ]
+    setDifficulty(diff);
+
+    const sourceByDiff = getItemByDiff(diff);
+
+    const shuffledImage = [ ...sourceByDiff , ...sourceByDiff ]
     //each time this query set a diffrent Cards order  
     .sort( ()=> Math.random() - 0.5 )
     // set a random ID for each Cards
@@ -47,6 +66,23 @@ function App() {
   
   const handleChoice = (card) => {
     choiceOne ? setChoiceTwo(card) : setChoiceOne(card);
+  }
+
+  // this function splice source image According to difficulty level ( choose by users )
+  const getItemByDiff = (diff) => { 
+    switch (diff) {
+      case "Easy":
+          return imagesSource.splice(0,8);
+          
+      case "Medium":
+        return imagesSource.splice(0,12);
+        
+      case "Hard":
+          return imagesSource.splice(0,18);
+
+      default:
+        return imagesSource.splice(0,6);
+    }
   }
   
   // control and check matched selection cards
@@ -102,7 +138,7 @@ function App() {
             <h1>Magic Match</h1>
             <h1>{turns}</h1>
 
-            <div className="cards-container">
+            <div className={`cards-container-${difficulty}`}>
               {
                 Cards.map( item => <Card 
                                       key={item.id} 

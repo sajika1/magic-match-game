@@ -3,10 +3,16 @@
 }
 
 .card img{
-    width: 100%;
+    width: 100px;
     display: block;
     border: 2px solid #fff;
     border-radius: 6px;
+}
+
+@media screen and (max-width:795px){
+    .card img{
+        width: 50px;
+    }
 }
 
 .card .front{

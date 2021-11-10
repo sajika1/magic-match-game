@@ -20,21 +20,45 @@ button:hover {
   background: #c23866;
   color: #fff;
 }
-.cards-container{
+.cards-container-Easy{
   display: grid;
-  grid-template-columns: repeat(4,1fr);
-  gap: 20px;
+  gap: 18px;
   padding: 1rem;
+  grid-template-columns: repeat(4,1fr);
 }
 
+.cards-container-Medium{
+  display: grid;
+  gap: 15px;
+  padding: 1rem;
+  grid-template-columns: repeat(5,1fr);
+}
+
+.cards-container-Hard{
+  display: grid;
+  gap: 13px;
+  padding: 1rem;
+  grid-template-columns: repeat(6,1fr);
+}
 
 @media screen and (max-width:568px){
   h1{
     font-size: 1rem;
     text-transform: uppercase;
-  }
-  .cards-container{
-    grid-template-columns: repeat(3,1fr);
+  } 
+
+  .cards-container-Easy{
+    gap: 10px;
   }
   
+.cards-container-Medium{
+  gap: 5px;
+  grid-template-columns: repeat(4,1fr);
+}
+
+.cards-container-Hard{
+  gap: 5px;
+  grid-template-columns: repeat(4,1fr);
+}
+
 }
