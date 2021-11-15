@@ -72,16 +72,16 @@ function App() {
   const getItemByDiff = (diff) => { 
     switch (diff) {
       case "Easy":
-          return imagesSource.splice(0,8);
+          return imagesSource.slice(0,8);
           
       case "Medium":
-        return imagesSource.splice(0,12);
+        return imagesSource.slice(0,12);
         
       case "Hard":
-          return imagesSource.splice(0,18);
+          return imagesSource.slice(0,18);
 
       default:
-        return imagesSource.splice(0,6);
+        return imagesSource.slice(0,6);
     }
   }
   
